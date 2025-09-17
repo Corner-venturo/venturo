@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { Disclosure } from '@headlessui/react'
-import { useGlobalStore } from '@/stores/globalStore'
-import { supabase } from '@/lib/supabase/client'
+import { useGlobalStore } from '../../stores/globalStore'
+import { supabase } from '../../lib/supabase/client'
 
 interface NavItem {
   label: string
