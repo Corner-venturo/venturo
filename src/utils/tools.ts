@@ -5,7 +5,7 @@
 /**
  * 將蛇形命名轉換為駝峰命名
  */
-export function toCamelCase<T = any>(obj: any): T {
+export function toCamelCase<T = unknown>(obj: unknown): T {
   if (obj === null || obj === undefined) {
     return obj;
   }
@@ -18,7 +18,7 @@ export function toCamelCase<T = any>(obj: any): T {
     return obj;
   }
 
-  const camelCaseObj: any = {};
+  const camelCaseObj: Record<string, unknown> = {};
 
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -43,7 +43,7 @@ export function toCamelCase<T = any>(obj: any): T {
 /**
  * 將駝峰命名轉換為蛇形命名
  */
-export function toSnakeCase<T = any>(obj: any): T {
+export function toSnakeCase<T = unknown>(obj: unknown): T {
   if (obj === null || obj === undefined) {
     return obj;
   }
@@ -56,7 +56,7 @@ export function toSnakeCase<T = any>(obj: any): T {
     return obj;
   }
 
-  const snakeCaseObj: any = {};
+  const snakeCaseObj: Record<string, unknown> = {};
 
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {

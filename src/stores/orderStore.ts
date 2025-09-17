@@ -84,7 +84,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入訂單資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入訂單資料時發生錯誤', isLoading: false })
     }
   },
@@ -98,7 +98,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入訂單資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入訂單資料時發生錯誤', isLoading: false })
     }
   },
@@ -116,7 +116,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '新增訂單失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '新增訂單時發生錯誤', isLoading: false })
       return false
     }
@@ -138,7 +138,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '更新訂單失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新訂單時發生錯誤', isLoading: false })
       return false
     }
@@ -160,7 +160,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '刪除訂單失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '刪除訂單時發生錯誤', isLoading: false })
       return false
     }
@@ -182,7 +182,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '批量刪除失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '批量刪除時發生錯誤', isLoading: false })
       return false
     }
@@ -204,7 +204,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '更新訂單狀態失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新訂單狀態時發生錯誤', isLoading: false })
       return false
     }
@@ -226,7 +226,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
         set({ error: response.error || '更新付款狀態失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新付款狀態時發生錯誤', isLoading: false })
       return false
     }
@@ -238,7 +238,7 @@ export const useOrderStore = create<OrderStore>((set, get) => ({
       if (response.success) {
         set({ stats: response.data })
       }
-    } catch (error) {
+    } catch (_error) {
       console.warn('載入統計資料失敗:', error)
     }
   },

@@ -59,13 +59,24 @@ function generateEventColor(type: string, id?: string): string {
     hash = id.charCodeAt(i) + ((hash << 5) - hash)
   }
 
-  // 稍微調整顏色的亮度
-  const adjustment = (hash % 40) - 20 // -20 到 +20
-  return baseColor // 先返回基本顏色，之後可以添加亮度調整邏輯
+  // 先返回基本顏色，之後可以添加亮度調整邏輯
+  return baseColor
+}
+
+// 待辦事項介面 (簡化版用於日曆轉換)
+interface TodoForCalendar {
+  id: string
+  title: string
+  due_date?: string | Date
+  created_at: string | Date
+  description?: string
+  mode?: string
+  priority?: string | number
+  user_id: string
 }
 
 // 將待辦事項轉換為日曆事件
-export const todoToCalendarEvent = (todo: any): CalendarEvent => {
+export const todoToCalendarEvent = (todo: TodoForCalendar): CalendarEvent => {
   // 確保日期格式正確
   const startDate = todo.due_date ?
     (typeof todo.due_date === 'string' ? todo.due_date : todo.due_date.toISOString()) :
@@ -88,8 +99,19 @@ export const todoToCalendarEvent = (todo: any): CalendarEvent => {
   }
 }
 
+// 專案介面 (簡化版用於日曆轉換)
+interface ProjectForCalendar {
+  id: string
+  name: string
+  start_date: string
+  end_date?: string
+  description?: string
+  status?: string
+  manager?: string
+}
+
 // 將專案轉換為日曆事件
-export const projectToCalendarEvent = (project: any): CalendarEvent => {
+export const projectToCalendarEvent = (project: ProjectForCalendar): CalendarEvent => {
   return {
     id: `project-${project.id}`,
     title: project.name,

@@ -75,7 +75,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入顧客資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入顧客資料時發生錯誤', isLoading: false })
     }
   },
@@ -89,7 +89,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入顧客資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入顧客資料時發生錯誤', isLoading: false })
     }
   },
@@ -107,7 +107,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
         set({ error: response.error || '新增顧客失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '新增顧客時發生錯誤', isLoading: false })
       return false
     }
@@ -128,7 +128,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
         set({ error: response.error || '更新顧客失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新顧客時發生錯誤', isLoading: false })
       return false
     }
@@ -150,7 +150,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
         set({ error: response.error || '刪除顧客失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '刪除顧客時發生錯誤', isLoading: false })
       return false
     }
@@ -172,7 +172,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
         set({ error: response.error || '批量刪除失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '批量刪除時發生錯誤', isLoading: false })
       return false
     }
@@ -184,7 +184,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
       if (response.success) {
         set({ stats: response.data })
       }
-    } catch (error) {
+    } catch (_error) {
       console.warn('載入統計資料失敗:', error)
     }
   },
@@ -208,7 +208,7 @@ export const useCustomerStore = create<CustomerStore>((set, get) => ({
         set({ error: response.error || '匯出資料失敗' })
         return null
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '匯出資料時發生錯誤' })
       return null
     }

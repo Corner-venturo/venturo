@@ -79,7 +79,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入旅遊團資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入旅遊團資料時發生錯誤', isLoading: false })
     }
   },
@@ -93,7 +93,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
       } else {
         set({ error: response.error || '載入旅遊團資料失敗', isLoading: false })
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '載入旅遊團資料時發生錯誤', isLoading: false })
     }
   },
@@ -111,7 +111,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
         set({ error: response.error || '新增旅遊團失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '新增旅遊團時發生錯誤', isLoading: false })
       return false
     }
@@ -132,7 +132,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
         set({ error: response.error || '更新旅遊團失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新旅遊團時發生錯誤', isLoading: false })
       return false
     }
@@ -154,7 +154,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
         set({ error: response.error || '刪除旅遊團失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '刪除旅遊團時發生錯誤', isLoading: false })
       return false
     }
@@ -176,7 +176,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
         set({ error: response.error || '批量刪除失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '批量刪除時發生錯誤', isLoading: false })
       return false
     }
@@ -198,7 +198,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
         set({ error: response.error || '更新狀態失敗', isLoading: false })
         return false
       }
-    } catch (error) {
+    } catch (_error) {
       set({ error: '更新狀態時發生錯誤', isLoading: false })
       return false
     }
@@ -210,7 +210,7 @@ export const useTravelGroupStore = create<TravelGroupStore>((set, get) => ({
       if (response.success) {
         set({ stats: response.data })
       }
-    } catch (error) {
+    } catch (_error) {
       console.warn('載入統計資料失敗:', error)
     }
   },
