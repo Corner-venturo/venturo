@@ -186,3 +186,6 @@ export function ComboboxDescription({ className, children, ...props }: React.Com
     </span>
   )
 }
+
+// 導出 Headless UI 組件供直接使用
+export { ComboboxInput, ComboboxButton, ComboboxOptions } from '@headlessui/react'
