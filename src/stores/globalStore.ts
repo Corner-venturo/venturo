@@ -1,14 +1,14 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface User {
+export interface User {
   id: string
   email: string
   display_name?: string
   role: string
 }
 
-interface GlobalState {
+export interface GlobalState {
   user: User | null
   permissions: string[]
   isLoading: boolean
