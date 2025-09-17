@@ -92,7 +92,7 @@ export default function NewOrderPage() {
     }))
   }
 
-  const handleInputChange = (field: keyof OrderFormData, value: any) => {
+  const handleInputChange = (field: keyof OrderFormData, value: string | number | boolean | OrderFormData['items']) => {
     setFormData(prev => ({ ...prev, [field]: value }))
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }))
@@ -129,7 +129,7 @@ export default function NewOrderPage() {
     }))
   }
 
-  const updateOrderItem = (index: number, field: keyof OrderItem, value: any) => {
+  const updateOrderItem = (index: number, field: keyof OrderItem, value: string | number) => {
     const newItems = [...formData.items]
     newItems[index] = { ...newItems[index], [field]: value }
 

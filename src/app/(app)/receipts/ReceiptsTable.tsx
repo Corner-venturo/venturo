@@ -17,7 +17,7 @@ import ExcelJS from 'exceljs'
 const STORAGE_KEY = 'receiptSearchParams'
 
 // 狀態顏色映射
-const getStatusBadgeColor = (status: number) => {
+const getStatusBadgeColor = (status: number): 'yellow' | 'green' | 'red' | 'zinc' => {
   switch (status) {
     case RECEIPT_STATUS.PENDING:
       return 'yellow'
@@ -275,7 +275,7 @@ export default function ReceiptsTable() {
                     {getReceiptTypeName(receipt.receiptType)}
                   </TableCell>
                   <TableCell>
-                    <Badge color={getStatusBadgeColor(receipt.status) as any}>
+                    <Badge color={getStatusBadgeColor(receipt.status)}>
                       {getStatusName(receipt.status)}
                     </Badge>
                   </TableCell>

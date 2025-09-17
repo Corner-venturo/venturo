@@ -14,6 +14,19 @@ import {
 import { format } from 'date-fns'
 import { LINKPAY_STATUS, getLinkPayStatusName, getLinkPayStatusColor } from '@/constants/linkPayStatus'
 
+// 映射 LinkPay 狀態顏色到 Badge 顏色
+const mapLinkPayColorToBadgeColor = (linkPayColor: string): 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose' | 'zinc' => {
+  switch (linkPayColor) {
+    case 'success': return 'green'
+    case 'error': return 'red'
+    case 'warning': return 'yellow'
+    case 'info': return 'blue'
+    case 'primary': return 'blue'
+    case 'secondary': return 'zinc'
+    default: return 'zinc'
+  }
+}
+
 interface LinkPayExpandableRowProps {
   receipt: Receipt
   linkpayData: LinkPayLog[]
@@ -177,7 +190,7 @@ export default function LinkPayExpandableRow({
                           </TableCell>
                           <TableCell>
                             <Badge
-                              color={getLinkPayStatusColor(item.status) as any}
+                              color={mapLinkPayColorToBadgeColor(getLinkPayStatusColor(item.status))}
                               className="text-xs"
                             >
                               {getLinkPayStatusName(item.status)}

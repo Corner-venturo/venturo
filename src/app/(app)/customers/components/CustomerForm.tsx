@@ -99,7 +99,7 @@ export function CustomerForm({
     }
   }
 
-  const handleInputChange = (field: keyof CustomerFormData, value: any) => {
+  const handleInputChange = (field: keyof CustomerFormData, value: string | boolean | undefined) => {
     setFormData(prev => ({ ...prev, [field]: value }))
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }))

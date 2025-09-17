@@ -133,7 +133,7 @@ export default function EditOrderPage() {
     }) : null)
   }
 
-  const handleInputChange = (field: keyof OrderFormData, value: any) => {
+  const handleInputChange = (field: keyof OrderFormData, value: string | number | boolean | OrderFormData['items']) => {
     setFormData(prev => prev ? ({ ...prev, [field]: value }) : null)
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }))
@@ -170,7 +170,7 @@ export default function EditOrderPage() {
     }) : null)
   }
 
-  const updateOrderItem = (index: number, field: keyof OrderItem, value: any) => {
+  const updateOrderItem = (index: number, field: keyof OrderItem, value: string | number) => {
     if (!formData) return
 
     const newItems = [...formData.items]
