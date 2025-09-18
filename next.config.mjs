@@ -45,6 +45,9 @@ const nextConfig = {
   
   // 靜態導出設定
   output: 'standalone',
+
+  // 設定 workspace root 來解決多個 lockfile 警告
+  outputFileTracingRoot: path.join(__dirname),
 }
 
 export default nextConfig
